@@ -1,0 +1,28 @@
+* {
+/*   outline: 1px solid red; */
+}
+
+#board-background {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-items: center;
+}
+
+#container {
+  width: 50%;
+  height: 50%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.squares {
+  border: 1px solid grey;
+  display: grid;
+  place-items: center;
+}
+
+p {
+  font-size: 2rem;
+}
