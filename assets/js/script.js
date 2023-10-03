@@ -1,4 +1,4 @@
-const squares = document.querySelectorAll(".squares");
+const squares = document.querySelectorAll(".image");
 // const body = getElementById("body");
 
 const numsArray = [1, 2, 3, 4];
@@ -18,7 +18,7 @@ function selectRandomArray() {
 
 function populateBoard() {
   for (let i = 0; i < squares.length; i++) {
-    squares[i].innerHTML = `<p>${randomNumsArray[i]}</p>`;
+    squares[i].src = `assets/images/cat-img-mstr/cat-img-mstr-${randomNumsArray[i]}.jpg`;
   }
 }
 
@@ -54,7 +54,9 @@ function checkForWinner(array) {
 }
 
 function selectNextNum(event) {
-  let currentDisplay = parseInt(event.target.textContent);
+  const imgSrc = event.target.src;
+  const srcNum = parseInt(imgSrc.charAt(imgSrc.length - 5));
+  let currentDisplay = srcNum;
   let nextInLine = randomNumsArray.shift();
 
   if (randomNumsArray.length === 0) {
@@ -62,11 +64,11 @@ function selectNextNum(event) {
   }
 
   if (currentDisplay !== nextInLine) {
-    event.target.textContent = nextInLine;
+    event.target.src = `assets/images/cat-img-mstr/cat-img-mstr-${nextInLine}.jpg`;
   } else {
     randomNumsArray.push(nextInLine);
     nextInLine = randomNumsArray.shift();
-    event.target.textContent = nextInLine;
+    event.target.src = `assets/images/cat-img-mstr/cat-img-mstr-${nextInLine}.jpg`;
   }
 
   getCurrentBoard();
