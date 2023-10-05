@@ -1,3 +1,5 @@
+"use strict";
+
 const squares = document.querySelectorAll(".image");
 // const body = getElementById("body");
 
@@ -82,10 +84,10 @@ for (let square of squares) {
 // Select random arrangement
 selectRandomArray();
 // Check initial arrabngemtn isn't already complete
-puzzleAlreadyComplete = checkForWinner(randomNumsArray);
-while (puzzleAlreadyComplete) {
-  selectRandomArray();
-}
+// puzzleAlreadyComplete = checkForWinner(randomNumsArray);
+// while (puzzleAlreadyComplete) {
+//   selectRandomArray();
+// }
 
 populateBoard();
 // Get a new random order for player to start choosing from

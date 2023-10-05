@@ -1,17 +1,26 @@
 * {
-/*   outline: 1px solid red; */
+  /*   outline: 1px solid red; */
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100%;
 }
 
 #board-background {
-    height: 100vh;
-    width: 100vw;
-    display: grid;
-    place-items: center;
+  /* width: 65vw; */
+  /* height: 80vw; */
+  display: grid;
+  place-items: center;
+  align-content: center;
+  margin-top: 15%;
 }
 
 #container {
-  width: 50%;
-  height: 50%;
+  width: 100%;
+  height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -19,10 +28,15 @@
 
 .squares {
   border: 1px solid grey;
-  display: grid;
-  place-items: center;
+  /* display: grid;
+  place-items: center; */
 }
 
-p {
-  font-size: 2rem;
+.squares img {
+  height: 100%;
+  width: 100%;
 }
+
+/* p {
+  font-size: 2rem;
+} */
