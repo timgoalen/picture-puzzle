@@ -3,7 +3,7 @@
 const squares = document.querySelectorAll(".image");
 // const body = getElementById("body");
 
-const numsArray = [1, 2, 3, 4];
+const numsArray = [1, 2, 3, 4, 5, 6];
 const numsArrayLength = numsArray.length;
 let randomNumsArray = [];
 
@@ -20,7 +20,7 @@ function selectRandomArray() {
 
 function populateBoard() {
   for (let i = 0; i < squares.length; i++) {
-    squares[i].src = `assets/images/cat-img-mstr/cat-img-mstr-${randomNumsArray[i]}.jpg`;
+    squares[i].src = `assets/images/cat-img-mstr-3/cat-img-mstr-${randomNumsArray[i]}.jpg`;
   }
 }
 
@@ -28,7 +28,7 @@ function getCurrentBoard() {
   //   make array of the current 'score'
   let currentBoard = [];
   for (let square of squares) {
-    currentSquare = parseInt(square.textContent);
+    const currentSquare = parseInt(square.textContent);
     currentBoard.push(currentSquare);
   }
   let puzzleComplete = checkForWinner(currentBoard);
@@ -48,7 +48,7 @@ function setBackgroundColour(colour) {
 }
 
 function checkForWinner(array) {
-  if (array[0] === 1 && array[1] === 2 && array[2] === 3 && array[3] === 4) {
+  if (array[0][array[0].length - 5] === 1 && array[1][array[1].length - 5] === 2 && array[2][array[2].length - 5] === 3 && array[3][array[3].length - 5] === 4 && array[4][array[4].length - 5] === 5 && array[5][array[5].length - 5] === 6) {
     return true;
   } else {
     return false;
@@ -66,11 +66,11 @@ function selectNextNum(event) {
   }
 
   if (currentDisplay !== nextInLine) {
-    event.target.src = `assets/images/cat-img-mstr/cat-img-mstr-${nextInLine}.jpg`;
+    event.target.src = `assets/images/cat-img-mstr-3/cat-img-mstr-${nextInLine}.jpg`;
   } else {
     randomNumsArray.push(nextInLine);
     nextInLine = randomNumsArray.shift();
-    event.target.src = `assets/images/cat-img-mstr/cat-img-mstr-${nextInLine}.jpg`;
+    event.target.src = `assets/images/cat-img-mstr-3/cat-img-mstr-${nextInLine}.jpg`;
   }
 
   getCurrentBoard();
@@ -84,10 +84,10 @@ for (let square of squares) {
 // Select random arrangement
 selectRandomArray();
 // Check initial arrabngemtn isn't already complete
-// puzzleAlreadyComplete = checkForWinner(randomNumsArray);
-// while (puzzleAlreadyComplete) {
-//   selectRandomArray();
-// }
+let puzzleAlreadyComplete = checkForWinner(randomNumsArray);
+while (puzzleAlreadyComplete) {
+  selectRandomArray();
+}
 
 populateBoard();
 // Get a new random order for player to start choosing from
